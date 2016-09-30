@@ -1,6 +1,6 @@
 package groupFiles;
 
-public class TobyBot {
+public class TobyBot implements Chatbot {
 	private boolean inSchoolLoop;
 	private String schoolResponse;
 	
@@ -19,13 +19,9 @@ public class TobyBot {
 	}
 
 	public boolean isTriggered(String userInput) {
-		//String[] triggers = {"school","class","teacher"};
+		String[] triggers = {"school"};
 		
 		if(EmeraldMain.findKeyword(userInput, "school", 0) >=0){
-			return true;
-		}
-
-		if(EmeraldMain.findKeyword(userInput, "class", 0) >=0){
 			return true;
 		}
 		

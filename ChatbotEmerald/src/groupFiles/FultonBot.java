@@ -1,6 +1,6 @@
 package groupFiles;
 
-public class FultonTrigger implements Chatbot {
+public class FultonBot implements Chatbot {
 
 	private boolean inSchoolLoop;
 	private String schoolResponse;
@@ -31,7 +31,6 @@ public class FultonTrigger implements Chatbot {
 			}
 			return false;
 		}
-		
 
 		if(EmeraldMain.findKeyword(userInput, "class", 0) >= 0){
 			return true;

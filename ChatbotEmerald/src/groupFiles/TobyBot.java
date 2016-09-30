@@ -1,6 +1,6 @@
 package groupFiles;
 
-public class TobyBot {
+public class TobyBot implements Chatbot {
 	private boolean inSchoolLoop;
 	private String schoolResponse;
 	

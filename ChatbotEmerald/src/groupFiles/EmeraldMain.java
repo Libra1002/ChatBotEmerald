@@ -10,6 +10,7 @@ public class EmeraldMain
 	static String user;
 	//list all the chatbot available under this class
 	//static Chatbot school;
+	static Chatbot fulton;
 	
 	public static void main(String[] args) {
 		 //demostrateStringMethods();
@@ -130,6 +131,7 @@ public class EmeraldMain
 			input = new Scanner (System.in);
 			user = "";
 			//school = new TobySchool();
+			//fulton = new 
 		}
 		
 		public static void demostrateStringMethods(){

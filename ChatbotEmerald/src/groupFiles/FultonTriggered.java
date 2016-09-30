@@ -1,6 +1,6 @@
 package groupFiles;
 
-public class FultonSchool implements Chatbot {
+public class FultonTriggered implements Chatbot {
 
 	private boolean inSchoolLoop;
 	private String schoolResponse;
@@ -21,7 +21,7 @@ public class FultonSchool implements Chatbot {
 	}
 
 	public boolean isTriggered(String userInput) {
-		String[] triggers = {"school","class","teacher"};
+		String[] triggers = {"school","class","teacher","asdasdasd"};
 		//idea: create a for loop to iterate
 		//through your array to triggers
 		

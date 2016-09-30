@@ -1,6 +1,6 @@
 package groupFiles;
 
-public class FultonTriggered implements Chatbot {
+public class FultonTrigger implements Chatbot {
 
 	private boolean inSchoolLoop;
 	private String schoolResponse;

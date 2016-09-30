@@ -1,6 +1,6 @@
 package groupFiles;
 
-public class FultonSchool implements ChatBot {
+public class FultonSchool implements Chatbot {
 
 	private boolean inSchoolLoop;
 	private String schoolResponse;
@@ -8,14 +8,14 @@ public class FultonSchool implements ChatBot {
 	public void talk() {
 		inSchoolLoop = true;
 		while(inSchoolLoop){
-			FultonMain.print("(Type 'quit' to go back.");
+			EmeraldMain.print("(Type 'quit' to go back.");
 			//static call on promptInput method from FultonMain class
-			schoolResponse = FultonMain.promptInput();
+			schoolResponse = EmeraldMain.promptInput();
 			if(schoolResponse.indexOf("quit") >= 0){
 				inSchoolLoop = false;
-				FultonMain.promptForever();
+				EmeraldMain.promptForever();
 			} 
-			FultonMain.print("That's my favorite part about school");
+			EmeraldMain.print("That's my favorite part about school");
 		}
 
 	}
@@ -26,18 +26,18 @@ public class FultonSchool implements ChatBot {
 		//through your array to triggers
 		
 		for(int i = 0; i < triggers.length; i++){
-			if(FultonMain.findKeyword(userInput, triggers[i], 0) >= 0){
+			if(EmeraldMain.findKeyword(userInput, triggers[i], 0) >= 0){
 			return true;
 			}
 			return false;
 		}
 		
 
-		if(FultonMain.findKeyword(userInput, "class", 0) >= 0){
+		if(EmeraldMain.findKeyword(userInput, "class", 0) >= 0){
 			return true;
 		}
 
-		if(FultonMain.findKeyword(userInput, "school", 0) >= 0){
+		if(EmeraldMain.findKeyword(userInput, "school", 0) >= 0){
 			return true;
 		}
 		return false;

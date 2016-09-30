@@ -12,7 +12,7 @@ public class KevinBot implements Chatbot{
 	public boolean isTriggered(String userInput) {
 		String[] triggers = {"hello"};
 		
-		for (int i = 0; i < triggers.length; i++)
+		for (int i = 0; i < triggers.length;)
 		{
 			if(EmeraldMain.findKeyword(userInput, triggers[i],0)>=0)
 			{

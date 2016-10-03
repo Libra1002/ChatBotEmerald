@@ -28,7 +28,7 @@ public class TraceyBot implements Chatbot{
 			return true;
 			}
 		
-		}
+		} 
 		return false;
 	}
 	

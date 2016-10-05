@@ -16,26 +16,26 @@ public class EmeraldMain
 		 //demostrateStringMethods();
 		 createFields();
 		 promptName();
-		 promptForever();
+		 promptFirstQ();
 	}	
 	
 	public static void promptName() {
+		String[] characters={"fulton", "tracey", "toby", "kevin"};
 		print("Enter your name");
 		user = input.nextLine();
-		print("Glad to meet you, "+user+". "
-			+ "For the rest of time, I will call you "+user+"."
-			+ " You may call me Computer."
-			+ " We should become friends.");
+		int intro= (int) (Math.random()*3);
+		print("Hey, "+user+". Let me introduce my friend, "+characters[intro]);
+		response = input.nextLine();
 	}
-		public static void promptForever() {
-		inMainLoop = true;
-		while(inMainLoop){
-			print("Hi, "+user+". How are you?");
+	
+	//
+	public static void promptFirstQ() {
+		
 			response = promptInput();
 			
 			//response to how you feel
-			if(findKeyword(response, "good",0)>=0){
-				print("That's wonderful. So glad you feel good.");
+			if(findKeyword(response, "yes",0)>=0){
+				print("");
 			}
 			//response to liking school
 			else if(response.indexOf("school") >=0){
@@ -47,43 +47,34 @@ public class EmeraldMain
 			else{
 				print("I don't understand.");
 			}
-		}	
-	}
+	}	
+
 		public static int findKeyword(String searchString, String keyword, int StartPsn) {
-		//delete white space
 		searchString = searchString.trim();
-		//make lowercase
 		searchString = searchString.toLowerCase(); 
 		keyword = keyword.toLowerCase();
-		print("The phrase is "+searchString);
-		print("The keyword is "+keyword);
-		//find first position of keyword
+
 		int psn = searchString.indexOf(keyword);
-		System.out.println("The keyword was found at "+psn);
 		
-		//keep searching until context keyword is found
+	
 		while(psn >=0){
-			//assume preceded and followed by space
+	
 			String before = " ";
 			String after = " ";
-			//check character in front, if it exists
+
 			if(psn >0){
 				before = searchString.substring(psn-1, psn);
-				print("The character before is "+before);
 			}
-			//check if there is a character after the keyword
+	
 			if(psn+ keyword.length() <searchString.length()){
 				after = searchString.substring
 						(psn + keyword.length(), psn + keyword.length()+1);
-				print("The character after is "+after);
 			}
 			if(before.compareTo("a")< 0 && after.compareTo("a") <0 && noNegations(searchString,psn)){
-				print("Found "+keyword+" at "+psn);
 				return psn;
 			}else{
-			//psn+1 is one space after our current psn, so this finds the NEXT word
+	
 			psn = searchString.indexOf(keyword,psn+1);
-				print("Did not find "+keyword+", checking position " +psn);
 				}
 			}
 			

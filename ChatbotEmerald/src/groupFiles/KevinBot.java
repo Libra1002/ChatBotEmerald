@@ -12,7 +12,8 @@ public class KevinBot implements Chatbot{
 	public void talk() {
 		visited = true;
 		String[] jokes = {"Why did the duck cross the road?"};
-		String[] answers = {"To prove he wasn't a chicken. *ba dum tss*"};
+		String[] answers = {"To prove he wasn't a chicken."};
+		String pun = "ba dum tss";
 		// TODO Auto-generated method stub
 		
 	}

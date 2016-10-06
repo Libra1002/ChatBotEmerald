@@ -16,7 +16,7 @@ public class EmeraldMain
 	static Chatbot kevin;
 	static String[] characters={"Snowman", "Daniel", "Flirty","Joker"};
 	
-	
+	 
 	public static void main(String[] args) {
 		 //demostrateStringMethods();
 		 createFields();

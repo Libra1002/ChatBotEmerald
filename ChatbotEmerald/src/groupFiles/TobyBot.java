@@ -23,16 +23,16 @@ public class TobyBot implements Chatbot {
 	public void talk() {
 		inFlirtLoop = true;
 		visited = true;
-		FlirtyBot();
 		while(inFlirtLoop){
+			FlirtyBot();
 			botResponse();
 			flirtResponse = EmeraldMain.promptInput();
 			EmeraldMain.print("I have always wanted to tell you this. It's ");
-				botSolution();
+				
 			if(!Triggered(flirtResponse)){
 				inFlirtLoop = false;
 				EmeraldMain.print("Uhhhh alright. Well it's ");
-				botSolution();
+				
 				}	
 			}	
 			
@@ -43,6 +43,7 @@ public class TobyBot implements Chatbot {
 				EmeraldMain.promptFirstQ();
 				}
 			}
+		
 		EmeraldMain.print("(Type 'quit' to leave Flirty.)");
 		}
 	
@@ -61,6 +62,7 @@ public class TobyBot implements Chatbot {
 				+ "soon you will be falling in love with me.");
 				
 		}
+		
 	}
 
 
@@ -71,17 +73,7 @@ public class TobyBot implements Chatbot {
 	
 	private void botSolution() {
 		questions.equals(answers[0]);
-	}
-
-	public boolean isTriggered(String userInput) {
-		String[] triggers = {"Flirty"};
-		
-		for(int i = 0; i < triggers.length; i++){
-			if(EmeraldMain.findKeyword(userInput, triggers[i], 0) >= 0)
-			return true;
-		}
-		
-		return false;
+		EmeraldMain.print(answers[i]);
 	}
 		
 	public boolean Triggered(String userInput) {

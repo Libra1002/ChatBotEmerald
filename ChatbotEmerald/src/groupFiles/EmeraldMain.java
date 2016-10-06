@@ -11,6 +11,11 @@ public class EmeraldMain
 	//list all the chatbot available under this class
 	//static Chatbot school;
 	static Chatbot fulton;
+	static Chatbot toby;
+	static Chatbot tracey;
+	static Chatbot kevin;
+	static String[] characters={"Snowman", "Daniel", "Flirty","Joker"};
+	
 	
 	public static void main(String[] args) {
 		 //demostrateStringMethods();
@@ -20,12 +25,19 @@ public class EmeraldMain
 	}	
 	
 	public static void promptName() {
-		String[] characters={"fulton", "tracey", "toby", "kevin"};
+		String[] bots={fulton, tracey, toby};
 		print("Enter your name");
 		user = input.nextLine();
 		int intro= (int) (Math.random()*3);
 		print("Hey, "+user+". Let me introduce my friend, "+characters[intro]);
-		response = input.nextLine();
+		if(fulton.isTriggered(characters[intro])){
+			fulton.talk();
+		}else if(toby.isTriggered(characters[intro])){
+			kevin.talk();
+		}else if(toby.isTriggered(characters[intro])){
+			tracey.talk();
+		}
+			;
 	}
 	
 	//
@@ -120,28 +132,13 @@ public class EmeraldMain
 		
 		private static void createFields() {
 			input = new Scanner (System.in);
+			fulton = new FultonBot();
+			toby = new TobyBot();
+			tracey = new TraceyBot();
+			kevin = new KevinBot();
 			user = "";
-			//school = new TobySchool();
-			//fulton = new 
 		}
 		
-		public static void demostrateStringMethods(){
-			String text1 = new String("Hello World");
-			String text2 = "Hello World";//same as above
-			
-			if (text1.equals(text2)){
-				print("These strings are equal:");
-			}
-			print(text1);
-			print(text2);
-			
-			String word1 = "Aardvark";
-			String word2 = "Zyzzyva";
-			
-			if(word1.compareTo(word2) <0){
-				print("word1 comes before word2");
-			}
-		}
 		
 		public static void print(String s) {
 			String printString = "";

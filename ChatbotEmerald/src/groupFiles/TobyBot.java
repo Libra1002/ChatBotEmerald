@@ -22,11 +22,11 @@ public class TobyBot implements Chatbot {
 			botResponse();
 			flirtResponse = EmeraldMain.promptInput();
 			EmeraldMain.print("I have always wanted to tell you this. It's ");
-				botSolution();
+				
 			if(!isTriggered(flirtResponse)){
 				inFlirtLoop = false;
 				EmeraldMain.print("Uhhhh alright. Well it's ");
-					botSolution();
+					
 			}
 		}	
 	}

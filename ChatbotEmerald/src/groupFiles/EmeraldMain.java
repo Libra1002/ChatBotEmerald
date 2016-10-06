@@ -34,13 +34,14 @@ public class EmeraldMain
 			fulton.talk();
 		}else if(toby.isTriggered(characters[intro])){
 			kevin.talk();
-		}else if(toby.isTriggered(characters[intro])){
+		}else if(tracey.isTriggered(characters[intro])){
 			tracey.talk();
+		}else{
+			toby.talk();
 		}
-			;
+			
 	}
 	
-	//
 	public static void promptFirstQ() {
 		
 			response = promptInput();

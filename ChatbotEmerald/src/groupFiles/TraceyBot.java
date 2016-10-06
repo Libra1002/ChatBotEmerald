@@ -4,8 +4,13 @@ public class TraceyBot implements Chatbot{
 	
 	private boolean inSchoolLoop;
 	private String schoolResponse;
+	private boolean visited;
+	public TraceyBot(){
+		visited = false;
+	};
 	
 	public void talk() {
+		visited = true;
 		inSchoolLoop=true;
 		while(inSchoolLoop){
 			EmeraldMain.print("(Type quick to go back)");
@@ -31,6 +36,12 @@ public class TraceyBot implements Chatbot{
 		} 
 		return false; 
 		//safsdf
+	}
+
+	@Override
+	public boolean beenVisited() {
+		
+		return visited;
 	}
 	
 }

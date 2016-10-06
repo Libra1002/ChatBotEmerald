@@ -32,9 +32,18 @@ public class TobyBot implements Chatbot {
 			if(!isTriggered(flirtResponse)){
 				inFlirtLoop = false;
 				EmeraldMain.print("Uhhhh alright. Well it's ");
-					
+				}	
+			}	
+			
+		while(inFlirtLoop){
+			flirtResponse = EmeraldMain.promptInput();
+			if(flirtResponse.indexOf("quit") >= 0){
+				inFlirtLoop = false;
+				EmeraldMain.promptFirstQ();
+				}
 			}
-		}	
+		}
+		EmeraldMain.print("(Type 'quit' to go back.");
 	}
 	
 	public void FlirtyBot() {
@@ -43,7 +52,7 @@ public class TobyBot implements Chatbot {
 				+ "phone contacts very soon. Want to spare some time to chat with me?");  
 		flirtResponse = EmeraldMain.promptInput();
 			
-		if(EmeraldMain.findKeyword(flirtResponse, "sure","ok","yes","yeah","yea","yep","okay",0) >=0){
+		if(isTriggered(flirtResponse)){
 			EmeraldMain.print("I had a feeling that the bond between us was mutual.");
 		}
 			
@@ -78,6 +87,7 @@ public class TobyBot implements Chatbot {
 	public boolean beenVisited() {
 		return visited;
 	}
+	
 }
 
 

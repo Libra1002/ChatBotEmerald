@@ -11,12 +11,12 @@ public class TobyBot implements Chatbot {
 	
 	private	String[] questions = {
 			"Can you guess what I'm wearing?",
-			"Know what's on the menu?",
+			"Damn you, is your real name WiFi?",
 			"Do you have a Band-Aid?",
 			"Can I follow you home?"};
 	private String[] answers = {
 			"the smile you gave me. Oh, also codes.",
-			"Me-N-U (Me&You) and .",
+			"because I¡¯m feeling a connection between us!",
 			"because I just scraped my knee falling for you. Oh wait, I dont have knees.",
 			"because my parents always told me to follow my dreams, even if they are programmed."};
 	
@@ -27,12 +27,13 @@ public class TobyBot implements Chatbot {
 			FlirtyBot();
 			botResponse();
 			flirtResponse = EmeraldMain.promptInput();
-			EmeraldMain.print("I have always wanted to tell you this. It's ");
-				
-			if(!Triggered(flirtResponse)){
+			EmeraldMain.print("I have always wanted to tell you this. It's "+);
+			userReaction();
+			
+			if(!isTriggered(flirtResponse)){
 				inFlirtLoop = false;
-				EmeraldMain.print("Uhhhh alright. Well it's ");
-				
+				EmeraldMain.print("Uhhhh alright. Well it's "+);
+				userReaction();	
 				}	
 			}	
 			
@@ -46,14 +47,14 @@ public class TobyBot implements Chatbot {
 		
 		EmeraldMain.print("(Type 'quit' to leave Flirty.)");
 		}
-	
+
 	public void FlirtyBot() {
 
 		EmeraldMain.print("Hey there sexy! My name is...actually it's gonna be in your "
 				+ "phone contacts very soon. Want to spare some time to chat with me?");  
 		flirtResponse = EmeraldMain.promptInput();
 			
-		if(Triggered(flirtResponse)){
+		if(isTriggered(flirtResponse)){
 			EmeraldMain.print("I had a feeling that the bond between us was mutual.");
 		}
 			
@@ -65,18 +66,35 @@ public class TobyBot implements Chatbot {
 		
 	}
 
-
 	private void botResponse() {
 		int questionSelect = (int)(Math.random()*questions.length);
 		EmeraldMain.print(questions[questionSelect]);
 	}
 	
 	private void botSolution() {
-		questions.equals(answers[0]);
-		EmeraldMain.print(answers[i]);
+		for(int i = 0; i < questions.length; i++){
+			if(EmeraldMain.findKeyword(userInput, triggered[i], 0) >= 0)
 	}
+
+	private void userReaction() {
 		
-	public boolean Triggered(String userInput) {
+		EmeraldMain.print("Do you feel our love for each other has rapidly increased?");  
+		flirtResponse = EmeraldMain.promptInput();
+			
+		if(isTriggered(flirtResponse)){
+			EmeraldMain.print("Looks like your love meter is already at its maximum capacity."
+					+ "Come talk to me whenever you need more of my love.");
+			EmeraldMain.promptFirstQ();
+		}
+			
+		else{
+			EmeraldMain.print("Looks like you haven't spend enough time with me."
+					+ "Let's try this over.");
+			talk();	
+		}
+	}	
+		
+	public boolean isTriggered(String userInput) {
 		String[] triggered = {"sure","ok","yes","yeah","yea","yep","okay"};
 		
 		for(int i = 0; i < triggered.length; i++){

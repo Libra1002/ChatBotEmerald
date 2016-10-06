@@ -28,10 +28,11 @@ public class TobyBot implements Chatbot {
 			botResponse();
 			flirtResponse = EmeraldMain.promptInput();
 			EmeraldMain.print("I have always wanted to tell you this. It's ");
-				
-			if(!isTriggered(flirtResponse)){
+				botSolution();
+			if(!Triggered(flirtResponse)){
 				inFlirtLoop = false;
 				EmeraldMain.print("Uhhhh alright. Well it's ");
+				botSolution();
 				}	
 			}	
 			
@@ -42,9 +43,8 @@ public class TobyBot implements Chatbot {
 				EmeraldMain.promptFirstQ();
 				}
 			}
+		EmeraldMain.print("(Type 'quit' to leave Flirty.)");
 		}
-		EmeraldMain.print("(Type 'quit' to go back.");
-	}
 	
 	public void FlirtyBot() {
 
@@ -52,7 +52,7 @@ public class TobyBot implements Chatbot {
 				+ "phone contacts very soon. Want to spare some time to chat with me?");  
 		flirtResponse = EmeraldMain.promptInput();
 			
-		if(isTriggered(flirtResponse)){
+		if(Triggered(flirtResponse)){
 			EmeraldMain.print("I had a feeling that the bond between us was mutual.");
 		}
 			
@@ -70,14 +70,25 @@ public class TobyBot implements Chatbot {
 	}
 	
 	private void botSolution() {
-		questionSelect.indexOf();
+		questions.equals(answers[0]);
 	}
 
 	public boolean isTriggered(String userInput) {
-		String[] triggers = {"sure","ok","yes","yeah","yea","yep","okay"};
+		String[] triggers = {"Flirty"};
 		
 		for(int i = 0; i < triggers.length; i++){
 			if(EmeraldMain.findKeyword(userInput, triggers[i], 0) >= 0)
+			return true;
+		}
+		
+		return false;
+	}
+		
+	public boolean Triggered(String userInput) {
+		String[] triggered = {"sure","ok","yes","yeah","yea","yep","okay"};
+		
+		for(int i = 0; i < triggered.length; i++){
+			if(EmeraldMain.findKeyword(userInput, triggered[i], 0) >= 0)
 			return true;
 		}
 		

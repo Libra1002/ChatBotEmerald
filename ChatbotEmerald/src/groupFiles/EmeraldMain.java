@@ -25,16 +25,16 @@ public class EmeraldMain
 	}	
 	
 	public static void promptName() {
-		String[] bots={fulton, tracey, toby};
+		
 		print("Enter your name");
 		user = input.nextLine();
-		int intro= (int) (Math.random()*3);
-		print("Hey, "+user+". Let me introduce my friend, "+characters[intro]);
-		if(fulton.isTriggered(characters[intro])){
+		String character = randomChar();
+		print("Hey, "+user+". Let me introduce my friend, "+character);
+		if(fulton.isTriggered(character)){
 			fulton.talk();
-		}else if(toby.isTriggered(characters[intro])){
+		}else if(kevin.isTriggered(character)){
 			kevin.talk();
-		}else if(tracey.isTriggered(characters[intro])){
+		}else if(tracey.isTriggered(character)){
 			tracey.talk();
 		}else{
 			toby.talk();
@@ -44,23 +44,36 @@ public class EmeraldMain
 	
 	public static void promptFirstQ() {
 		
-			response = promptInput();
+			boolean notValid = true;
 			
-			//response to how you feel
-			if(findKeyword(response, "yes",0)>=0){
-				print("");
+			while(notValid){
+				String newChara = randomChar();
+				if(fulton.isTriggered(newChara) && !fulton.beenVisited()){
+					print("Hi again! Wanna see my other friend, "+newChara);
+					fulton.talk();
+					notValid = false;
+				}else if(kevin.isTriggered(newChara) && !kevin.beenVisited()){
+					print("Hi again! Wanna see my other friend, "+newChara);
+					kevin.talk();
+					notValid = false;
+				}else if(tracey.isTriggered(newChara) && !tracey.beenVisited()){
+					print("Hi again! Wanna see my other friend, "+newChara);
+					tracey.talk();
+					notValid = false;
+				}else if(!toby.beenVisited()){
+					print("Hi again! Wanna see my other friend, "+newChara);
+					toby.talk();
+					notValid = false;
+				}
 			}
-			//response to liking school
-			else if(response.indexOf("school") >=0){
-				print("School is great! Tell me about school.");
-				inMainLoop = false;
-				//school.talk();
-			}
-			
-			else{
-				print("I don't understand.");
-			}
-	}	
+						
+	}
+	
+	public static String randomChar() {
+		
+		int intro = (int)(Math.random()*3);
+		return characters[intro];
+	}
 
 		public static int findKeyword(String searchString, String keyword, int StartPsn) {
 		searchString = searchString.trim();

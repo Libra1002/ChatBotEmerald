@@ -4,6 +4,10 @@ public class FultonBot implements Chatbot {
 	
 	private boolean inSongLoop;
 	private boolean visited;
+	private String snowmanResponse;
+	private String[] gameSong = {"Do you wanna play a game?","Come on lets go and play",
+			"For the first time in forever","Come out and play","It's like you've gone away...",
+			"We used to be best buddies","And now we're not","I wish you would tell me why!"};
 	public FultonBot(){
 		visited = false;
 	}
@@ -12,14 +16,14 @@ public class FultonBot implements Chatbot {
 		inSongLoop = true;
 		visited = true;
 		while(inSongLoop){
-			
-			//static call on promptInput method from FultonMain class
-			schoolResponse = EmeraldMain.promptInput();
-			if(schoolResponse.indexOf("quit") >= 0){
+			snowmanResponse = EmeraldMain.promptInput();
+			for(int i = 0; i <= gameSong.length; i++){
+				EmeraldMain.print("gameSong[i]");
+			}
+			if(snowmanResponse.indexOf("quit") >= 0){
 				inSongLoop = false;
 				EmeraldMain.promptFirstQ();
 			} 
-			EmeraldMain.print("That's my favorite part about school");
 		}
 		EmeraldMain.print("(Type 'quit' to go back.");
 	}
@@ -39,5 +43,4 @@ public class FultonBot implements Chatbot {
 	public boolean beenVisited() {
 		return visited;
 	}
-
 }

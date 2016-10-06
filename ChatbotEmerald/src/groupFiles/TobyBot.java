@@ -4,6 +4,10 @@ public class TobyBot implements Chatbot {
 	
 	private String flirtResponse;
 	private boolean inFlirtLoop;
+	private boolean visited;
+	public TobyBot(){
+		visited = false;
+	}
 	
 	private	String[] questions = {
 			"Can you guess what I'm wearing?",
@@ -18,6 +22,7 @@ public class TobyBot implements Chatbot {
 	
 	public void talk() {
 		inFlirtLoop = true;
+		visited = true;
 		while(inFlirtLoop){
 			botResponse();
 			flirtResponse = EmeraldMain.promptInput();
@@ -30,6 +35,26 @@ public class TobyBot implements Chatbot {
 			}
 		}	
 	}
+	
+	public static void FlirtyBot() {
+
+		inFlirtLoop = true;
+		while(inFlirtyLoop){
+			EmeraldMain.print("Hey there sexy! My name is...actually it's gonna be in your "
+					+ "phone contacts very soon. Want to spare some time to chat with me?");  
+			flirtResponse = EmeraldMain.promptInput();
+			
+			if(findKeyword(response, "sure","ok","yes","yeah","yea","yep","okay",0) >=0){
+				EmeraldMain.print("I had a feeling that the bond between us was mutual.");
+			}
+			
+			else{
+				EmeraldMain.print("No worries. If you chat with me for a few minutes, "
+						+ "soon you will be falling in love with me.");
+			}
+		}
+	}
+
 
 	private void botResponse() {
 		int questionSelect = (int)(Math.random()*questions.length);
@@ -51,28 +76,12 @@ public class TobyBot implements Chatbot {
 		return false;	
 	}
 	
-}
-
-
-
-//belonging to EmeraldMain
-public static void FlirtyBot() {
-
-	inMainLoop = true;
-	while(inMainLoop){
-		print("Hey there sexy! My name is...actually it's gonna be in your "
-				+ "phone contacts very soon. Want to spare some time to chat with me?");  
-		response = promptInput();
-		
-		if(findKeyword(response, "sure","ok","yes","yeah","yea","yep","okay",0) >=0){
-			print("I had a feeling that the bond between us was mutual.");
-		}
-		
-		else{
-			print("No worries. If you chat with me for a few minutes, "
-					+ "soon you will be falling in love with me.");
-		}
+	public boolean beenVisited() {
+		return visited;
 	}
 }
+
+
+
 
 

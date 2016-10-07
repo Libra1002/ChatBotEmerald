@@ -29,8 +29,8 @@ public class TobyBot implements Chatbot {
 		while(inFlirtLoop){
 			FlirtyBot();
 			botResponse();	
-			flirtResponse = EmeraldMain.promptInput();	
-			if(flirtResponse.indexOf("quit") >= 0){
+			
+			if(EmeraldMain.findKeyword(flirtResponse, "quit", 0)>=0){
 				inFlirtLoop = false;
 				EmeraldMain.promptFirstQ();
 				}
@@ -87,7 +87,7 @@ public class TobyBot implements Chatbot {
 	}	
 		
 	public boolean isTriggered(String userInput) {
-		String[] triggered = {"sure","ok","yes","yeah","yea","yep","okay","fine"};
+		String[] triggered = {"sure","ok","yes","yeah","yea","yep","okay","fine","Flirty","quit"};
 		
 		for(int i = 0; i < triggered.length; i++){
 			if(EmeraldMain.findKeyword(userInput, triggered[i], 0) >= 0)

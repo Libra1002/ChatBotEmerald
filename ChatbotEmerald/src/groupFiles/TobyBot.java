@@ -20,7 +20,7 @@ public class TobyBot implements Chatbot {
 			"the smile you gave me. Oh, also codes.",
 			"because I¡¯m feeling a connection between us!",
 			"because I just scraped my knee falling for you. Oh wait, I dont have knees.",
-			"because my parents always told me to follow my dreams, even if they are programmed.",
+			"because my parents always told me to follow my dreams (they are not programmed).",
 			"because you¡¯re the answer to all my prayers."};
 	
 	public void talk() {
@@ -29,7 +29,7 @@ public class TobyBot implements Chatbot {
 		while(inFlirtLoop){
 			FlirtyBot();
 			botResponse();	
-				
+			flirtResponse = EmeraldMain.promptInput();	
 			if(flirtResponse.indexOf("quit") >= 0){
 				inFlirtLoop = false;
 				EmeraldMain.promptFirstQ();
@@ -43,11 +43,10 @@ public class TobyBot implements Chatbot {
 		int questionSelect = (int)(Math.random()*questions.length);
 		EmeraldMain.print(questions[questionSelect]);
 		flirtResponse = EmeraldMain.promptInput();
-		EmeraldMain.print("I have always wanted to tell you this. It's "+answers[questionSelect]);
-		userReaction();
-		
-		if(!isTriggered(flirtResponse)){
-			inFlirtLoop = false;
+		if(isTriggered(flirtResponse)){
+			EmeraldMain.print("I have always wanted to tell you this. It's "+answers[questionSelect]);
+			userReaction();
+		}else{
 			EmeraldMain.print("Uhhhh alright. Well it's "+answers[questionSelect]);
 			userReaction();
 		}
@@ -82,7 +81,7 @@ public class TobyBot implements Chatbot {
 			
 		else{
 			EmeraldMain.print("Looks like you haven't spend enough time with me."
-					+ " Let's try this over.");
+					+ " Let's try this over:");
 			talk();	
 		}
 	}	

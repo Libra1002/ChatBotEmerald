@@ -1,3 +1,5 @@
+package groupFiles;
+
 public class FultonBot implements Chatbot {
 	
 	private boolean inSongLoop;

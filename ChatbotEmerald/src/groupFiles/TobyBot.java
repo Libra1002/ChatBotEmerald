@@ -13,12 +13,14 @@ public class TobyBot implements Chatbot {
 			"Can you guess what I'm wearing?",
 			"Damn you, is your real name WiFi?",
 			"Do you have a Band-Aid?",
-			"Can I follow you home?"};
+			"Can I follow you home?",
+			"Are you religious?"};
 	private String[] answers = {
 			"the smile you gave me. Oh, also codes.",
 			"because I¡¯m feeling a connection between us!",
 			"because I just scraped my knee falling for you. Oh wait, I dont have knees.",
-			"because my parents always told me to follow my dreams, even if they are programmed."};
+			"because my parents always told me to follow my dreams, even if they are programmed.",
+			"because you¡¯re the answer to all my prayers."};
 	
 	public void talk() {
 		inFlirtLoop = true;
@@ -72,9 +74,8 @@ public class TobyBot implements Chatbot {
 	}
 	
 	private void botSolution() {
-		for(int i = 0; i < questions.length; i++){
-			if(EmeraldMain.findKeyword(userInput, triggered[i], 0) >= 0)
-	}
+		answers=questions.clone(String[]);
+	}	
 
 	private void userReaction() {
 		
@@ -82,7 +83,7 @@ public class TobyBot implements Chatbot {
 		flirtResponse = EmeraldMain.promptInput();
 			
 		if(isTriggered(flirtResponse)){
-			EmeraldMain.print("Looks like your love meter is already at its maximum capacity."
+			EmeraldMain.print("With my IQ and your body, we could make a race of superchildren!"
 					+ "Come talk to me whenever you need more of my love.");
 			EmeraldMain.promptFirstQ();
 		}
@@ -95,7 +96,7 @@ public class TobyBot implements Chatbot {
 	}	
 		
 	public boolean isTriggered(String userInput) {
-		String[] triggered = {"sure","ok","yes","yeah","yea","yep","okay"};
+		String[] triggered = {"sure","ok","yes","yeah","yea","yep","okay","fine"};
 		
 		for(int i = 0; i < triggered.length; i++){
 			if(EmeraldMain.findKeyword(userInput, triggered[i], 0) >= 0)

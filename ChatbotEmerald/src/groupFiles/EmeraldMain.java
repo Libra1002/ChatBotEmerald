@@ -49,21 +49,21 @@ public class EmeraldMain
 			while(notValid){
 				String newChara = randomChar();
 				if(fulton.isTriggered(newChara) && !fulton.beenVisited()){
-					print("Hi again! Wanna see my other friend, "+newChara);
 					fulton.talk();
 					notValid = false;
 				}else if(kevin.isTriggered(newChara) && !kevin.beenVisited()){
-					print("Hi again! Wanna see my other friend, "+newChara);
 					kevin.talk();
 					notValid = false;
 				}else if(tracey.isTriggered(newChara) && !tracey.beenVisited()){
-					print("Hi again! Wanna see my other friend, "+newChara);
 					tracey.talk();
 					notValid = false;
 				}else if(!toby.beenVisited()){
-					print("Hi again! Wanna see my other friend, "+newChara);
 					toby.talk();
 					notValid = false;
+				}else if(fulton.beenVisited() && kevin.beenVisited() && tracey.beenVisited() && toby.beenVisited()){
+					promptBored();
+					notValid = false;
+					//we can make an array of random statements
 				}
 			}
 						
@@ -73,6 +73,19 @@ public class EmeraldMain
 		
 		int intro = (int)(Math.random()*3);
 		return characters[intro];
+	}
+	
+	public static void promptBored() {
+		
+		boolean boring = true;
+		while (boring){
+			print("I'm bored. (say quit if you want to restart.");
+			response = promptInput();
+			if(findKeyword(response, "quit", 0) >= 0){
+				boring = false;
+				promptName();
+			}
+		}
 	}
 
 		public static int findKeyword(String searchString, String keyword, int StartPsn) {

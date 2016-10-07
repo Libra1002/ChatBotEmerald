@@ -64,7 +64,7 @@ public class TraceyBot implements Chatbot{
 			}
 			response = EmeraldMain.promptInput();
 			if (EmeraldMain.findKeyword(response, "quit", 0)>=0){
-				EmeraldMain.promptName();
+				EmeraldMain.promptFirstQ();
 			}
 		}
 	}

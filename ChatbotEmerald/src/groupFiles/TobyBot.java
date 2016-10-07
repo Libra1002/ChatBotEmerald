@@ -40,7 +40,7 @@ public class TobyBot implements Chatbot {
 			}
 		
 		EmeraldMain.print("(Type 'quit' to leave Flirty.)");
-		}
+	}
 
 	private void botResponse() {
 		int questionSelect = (int)(Math.random()*questions.length);
@@ -106,8 +106,5 @@ public class TobyBot implements Chatbot {
 	}
 	
 }
-
-
-
 
 

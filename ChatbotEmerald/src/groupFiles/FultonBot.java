@@ -1,5 +1,3 @@
-package groupFiles;
-
 public class FultonBot implements Chatbot {
 	
 	private boolean inSongLoop;
@@ -15,11 +13,11 @@ public class FultonBot implements Chatbot {
 	public void talk() {
 		inSongLoop = true;
 		visited = true;
+		EmeraldMain.print(gameSong[0]);
 		while(inSongLoop){
 			snowmanResponse = EmeraldMain.promptInput();
-			for(int i = 0; i <= gameSong.length; i++){
-				EmeraldMain.print("gameSong[i]");
-			}
+			printResponse();
+			
 			if(snowmanResponse.indexOf("quit") >= 0){
 				inSongLoop = false;
 				EmeraldMain.promptFirstQ();
@@ -27,9 +25,21 @@ public class FultonBot implements Chatbot {
 		}
 		EmeraldMain.print("(Type 'quit' to go back.");
 	}
+	
+	private void printResponse() {
+		int count = 1;
+		if(!((EmeraldMain.promptInput()).length() < 0)){
+			EmeraldMain.print(gameSong[count]);
+			
+			while(count <= gameSong.length - 1)
+			{
+			count++;
+			}
+		}
+	}
 
 	public boolean isTriggered(String userInput) {
-		String[] triggers = {"Yes","No","Snowman"};
+		String[] triggers = {"Yes","No","Snowman","Quit"};
 		
 		for(int i = 0; i < triggers.length; ){
 			if(!(EmeraldMain.findKeyword(userInput, triggers[i], 0) >= 0)){

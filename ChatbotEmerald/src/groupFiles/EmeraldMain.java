@@ -21,7 +21,6 @@ public class EmeraldMain
 		 //demostrateStringMethods();
 		 createFields();
 		 promptName();
-		 promptFirstQ();
 	}	
 	
 	public static void promptName() {
@@ -30,13 +29,13 @@ public class EmeraldMain
 		user = input.nextLine();
 		String character = randomChar();
 		print("Hey, "+user+". Let me introduce my friend, "+character);
-		if(fulton.isTriggered(character)){
-			fulton.talk();
+		if(tracey.isTriggered(character)){
+			tracey.talk();
 		}else if(kevin.isTriggered(character)){
 			kevin.talk();
-		}else if(tracey.isTriggered(character)){
-			tracey.talk();
-		}else{
+		}else if(fulton.isTriggered(character)){
+			fulton.talk();
+		}else if(toby.isTriggered(character)){
 			toby.talk();
 		}
 			
@@ -71,7 +70,7 @@ public class EmeraldMain
 	
 	public static String randomChar() {
 		
-		int intro = (int)(Math.random()*3);
+		int intro = (int)(Math.random()*characters.length);
 		return characters[intro];
 	}
 	

@@ -5,6 +5,7 @@ public class TobyBot implements Chatbot {
 	private String flirtResponse;
 	private boolean inFlirtLoop;
 	private boolean visited;
+	int questionSelect;
 	public TobyBot(){
 		visited = false;
 	}
@@ -27,16 +28,7 @@ public class TobyBot implements Chatbot {
 		visited = true;
 		while(inFlirtLoop){
 			FlirtyBot();
-			botResponse();
-			flirtResponse = EmeraldMain.promptInput();
-			EmeraldMain.print("I have always wanted to tell you this. It's "+);
-			userReaction();
-			
-			if(!isTriggered(flirtResponse)){
-				inFlirtLoop = false;
-				EmeraldMain.print("Uhhhh alright. Well it's "+);
-				userReaction();	
-				}	
+			botResponse();	
 			}	
 			
 		while(inFlirtLoop){
@@ -50,6 +42,20 @@ public class TobyBot implements Chatbot {
 		EmeraldMain.print("(Type 'quit' to leave Flirty.)");
 		}
 
+	private void botResponse() {
+		int questionSelect = (int)(Math.random()*questions.length);
+		EmeraldMain.print(questions[questionSelect]);
+		flirtResponse = EmeraldMain.promptInput();
+		EmeraldMain.print("I have always wanted to tell you this. It's "+answers[questionSelect]);
+		userReaction();
+		
+		if(!isTriggered(flirtResponse)){
+			inFlirtLoop = false;
+			EmeraldMain.print("Uhhhh alright. Well it's "+answers[questionSelect]);
+			userReaction();
+		}
+	}
+	
 	public void FlirtyBot() {
 
 		EmeraldMain.print("Hey there sexy! My name is...actually it's gonna be in your "
@@ -62,19 +68,8 @@ public class TobyBot implements Chatbot {
 			
 		else{
 			EmeraldMain.print("No worries. If you chat with me for a few minutes, "
-				+ "soon you will be falling in love with me.");
-				
+				+ "soon you will be falling in love with me.");	
 		}
-		
-	}
-
-	private void botResponse() {
-		int questionSelect = (int)(Math.random()*questions.length);
-		EmeraldMain.print(questions[questionSelect]);
-	}
-	
-	private void botSolution() {
-		answers=questions.clone(String[]);
 	}	
 
 	private void userReaction() {

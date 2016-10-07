@@ -29,10 +29,7 @@ public class TobyBot implements Chatbot {
 		while(inFlirtLoop){
 			FlirtyBot();
 			botResponse();	
-			}	
-			
-		while(inFlirtLoop){
-			flirtResponse = EmeraldMain.promptInput();
+				
 			if(flirtResponse.indexOf("quit") >= 0){
 				inFlirtLoop = false;
 				EmeraldMain.promptFirstQ();
@@ -79,13 +76,13 @@ public class TobyBot implements Chatbot {
 			
 		if(isTriggered(flirtResponse)){
 			EmeraldMain.print("With my IQ and your body, we could make a race of superchildren!"
-					+ "Come talk to me whenever you need more of my love.");
+					+ " Come talk to me whenever you need more of my love.");
 			EmeraldMain.promptFirstQ();
 		}
 			
 		else{
 			EmeraldMain.print("Looks like you haven't spend enough time with me."
-					+ "Let's try this over.");
+					+ " Let's try this over.");
 			talk();	
 		}
 	}	

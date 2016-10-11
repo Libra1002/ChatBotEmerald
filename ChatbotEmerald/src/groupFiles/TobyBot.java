@@ -26,30 +26,18 @@ public class TobyBot implements Chatbot {
 	public void talk() {
 		inFlirtLoop = true;
 		visited = true;
-		while(inFlirtLoop){
-			FlirtyBot();
-			botResponse();	
+		FlirtyBot();
+		botResponse();	
+		
+		while(inFlirtLoop){		
+			flirtResponse = EmeraldMain.promptInput();
 			
 			if(EmeraldMain.findKeyword(flirtResponse, "quit", 0)>=0){
 				inFlirtLoop = false;
 				EmeraldMain.promptFirstQ();
-				}
 			}
-		
+		}	
 		EmeraldMain.print("(Type 'quit' to leave Flirty.)");
-	}
-
-	private void botResponse() {
-		int questionSelect = (int)(Math.random()*questions.length);
-		EmeraldMain.print(questions[questionSelect]);
-		flirtResponse = EmeraldMain.promptInput();
-		if(isTriggered(flirtResponse)){
-			EmeraldMain.print("I have always wanted to tell you this. It's "+answers[questionSelect]);
-			userReaction();
-		}else{
-			EmeraldMain.print("Uhhhh alright. Well it's "+answers[questionSelect]);
-			userReaction();
-		}
 	}
 	
 	public void FlirtyBot() {
@@ -67,6 +55,19 @@ public class TobyBot implements Chatbot {
 				+ "soon you will be falling in love with me.");	
 		}
 	}	
+	
+	private void botResponse() {
+		int questionSelect = (int)(Math.random()*questions.length);
+		EmeraldMain.print(questions[questionSelect]);
+		flirtResponse = EmeraldMain.promptInput();
+		if(isTriggered(flirtResponse)){
+			EmeraldMain.print("I have always wanted to tell you this. It's "+answers[questionSelect]);
+			userReaction();
+		}else{
+			EmeraldMain.print("Uhhhh alright. Well it's "+answers[questionSelect]);
+			userReaction();
+		}
+	}
 
 	private void userReaction() {
 		

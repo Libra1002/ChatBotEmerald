@@ -31,12 +31,12 @@ public class EmeraldMain
 		print("Hey, "+user+". Let me introduce my friend, "+character);
 		if(tracey.isTriggered(character)){
 			tracey.talk();
+		}else if(toby.isTriggered(character)){
+			toby.talk();
 		}else if(kevin.isTriggered(character)){
 			kevin.talk();
 		}else if(fulton.isTriggered(character)){
 			fulton.talk();
-		}else if(toby.isTriggered(character)){
-			toby.talk();
 		}
 			
 	}
